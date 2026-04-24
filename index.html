@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <!-- tailwind+daisy UI -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Fonts -->
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+     <!-- Style CSS -->
+
+     <style>
+        *{
+              font-family: "Geist", sans-serif;
+
+        }
+     </style>
+
+
+
+</head>
+<body class="min-h-screen max-w-md bg-base-200 mx-auto">
+    <div class="flex justify-center">
+    <fieldset class="fieldset  w-xs  p-4 mt-12 ">
+        <div class="text-center space-y-3 mb-5" >
+            <div class="flex justify-center">
+                <img src="./assets/github-logo.png" alt="">
+            </div>
+
+            <h2 class="text-2xl font-bold">GitHub Issues Tracker</h2>
+            <p class="text-xs font-semibold">Sign in to manage your issues</p>
+
+
+        </div>
+        <label  class="label text-[18px] text-black font-medium">User Name</label>
+        <input id="userName" type="text" class="input " placeholder="Enter Username" />
+
+        <label class="label text-[18px] text-black font-medium">Password</label>
+        <input id="password" type="password" class="input" placeholder="Enter Password" />
+
+        <button id="login" class="btn btn-primary mt-4">Sign In</button>
+    </fieldset>
+    </div>
+
+    <script src="./login.js"></script>
+</body>
+</html>
