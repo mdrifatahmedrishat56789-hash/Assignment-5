@@ -12,7 +12,7 @@ document.getElementById("login").addEventListener('click',function(){
 
     if(showUserName == 'admin' && showPassword == 'admin123'){
         alert("Login Success")
-        window.location.assign("/home.html")
+        window.location.assign("./home.html")
     }
     else{
         alert("Incorrect Password and User Name")
