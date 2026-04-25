@@ -1,1 +1,18 @@
+1.  What is the difference between var, let, and const?
+Answer : var : Re-assign করা যায়
+          let : Re-assign করা যায়
+          const : Re-assign করা যায় না
 
+2.  What is the spread operator (...)?
+Answer : Array and Object এর elementগুলো আলাদা করে ব্যবহার করে
+
+3.  What is the difference between map(), filter(), and forEach()?
+Answer : map() : প্রতিটা element এর উপর কাজ করে নতুন array return করে
+          filter() : condition অনুযায়ী নতুন array return করে
+          forEach() :লুপ চালায়
+
+4. What is an arrow function?
+Answer : Arrow Function হলো JavaScript-এর একটি সংক্ষিপ্তভাবে function লেখার পদ্ধতি, যেখানে function keyword ব্যবহার না করে => (arrow) চিহ্ন ব্যবহার করা হয়।
+
+5.  What are template literals?
+Answer: Template Literals হলো JavaScript-এ string লেখার একটি আধুনিক পদ্ধতি, যেখানে backstik (``) ব্যবহার করা হয়।
