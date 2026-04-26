@@ -31,6 +31,10 @@
               font-family: "Geist", sans-serif;
 
         }
+        .active{
+            background-color: #4f46e5;;
+            color: white;
+        }
      </style>
 
 
@@ -56,9 +60,9 @@
     </header>
 
     <section id="button" class="w-11/12 mx-auto bg-white shadow-sm mt-8 rounded-[8px] p-5 flex gap-3.5">
-        <button id="all" class="btn btn-outline btn-primary ">All</button>
-        <button id="open" class="btn btn-outline btn-primary">Open</button>
-        <button id="closed" class="btn btn-outline btn-primary">Closed</button>
+        <button id="all" class="btn filter-btn  active ">All</button>
+        <button id="open" class="btn btn-outline btn-primary filter-btn">Open</button>
+        <button id="closed" class="btn btn-outline btn-primary filter-btn">Closed</button>
     </section>
 
 
@@ -87,7 +91,24 @@
     </section>
 
 
+<!-- Open the modal using ID.showModal() method
+<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <!-- <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog> --> 
 
+        <div id="loading" class="flex justify-center mt-7">
+            <span class="loading loading-spinner loading-xl "></span>
+        </div>
 
     <section id="issueCard" class="w-11/12 mx-auto bg-[#FBFBFB] shadow-sm mt-8 rounded-[8px] p-5 grid grid-cols-2 md:grid-cols-4 gap-5 space-y-2.5 ">
         
