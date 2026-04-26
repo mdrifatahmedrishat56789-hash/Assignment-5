@@ -1,11 +1,26 @@
 const loading = document.getElementById("loading")
 
-const allIssue = ()=>{
+const allIssue = (selectedValue)=>{
     loading.style.display = "flex";
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     fetch(url)
     .then(res=> res.json())
     .then(data => {
+        if(selectedValue){
+            if(selectedValue === "All"){
+                 displayIssue(data.data)
+                loading.style.display = "none";
+                return
+            }
+            const filterIssue = data.data.filter(
+                issue=> issue.status.toLowerCase() === selectedValue.toLowerCase()
+            )
+    
+             loading.style.display = "none";
+            displayIssue(filterIssue)
+            return;
+        }
+
         displayIssue(data.data)
         loading.style.display = "none";
     })
@@ -19,6 +34,7 @@ const createElement = (arr) =>{
 
 
 const displayIssue = (issueCards)=>{
+
     const issueCard = document.getElementById("issueCard")
     issueCard.innerHTML = ""
      
@@ -51,6 +67,12 @@ const displayIssue = (issueCards)=>{
         issueCard.appendChild(displayCard)
         })       
 }
+
+document.getElementById("button").addEventListener("click", (e)=>{
+    e.preventDefault()
+    const selectedValue = e.target.innerText;
+    allIssue(selectedValue)
+})
 
 
 
