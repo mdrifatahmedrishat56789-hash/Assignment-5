@@ -1,4 +1,12 @@
 const loading = document.getElementById("loading")
+const total = document.getElementById("total")
+
+const removeBtn = () => {
+    const issueButton = document.querySelectorAll(".issueButton");
+    issueButton.forEach(btn => btn.classList.remove("active"));
+}
+
+
 
 const allIssue = (selectedValue)=>{
     loading.style.display = "flex";
@@ -6,6 +14,7 @@ const allIssue = (selectedValue)=>{
     fetch(url)
     .then(res=> res.json())
     .then(data => {
+        removeBtn()
         if(selectedValue){
             if(selectedValue === "All"){
                  displayIssue(data.data)
@@ -20,7 +29,6 @@ const allIssue = (selectedValue)=>{
             displayIssue(filterIssue)
             return;
         }
-
         displayIssue(data.data)
         loading.style.display = "none";
     })
@@ -37,11 +45,12 @@ const displayIssue = (issueCards)=>{
 
     const issueCard = document.getElementById("issueCard")
     issueCard.innerHTML = ""
+    total.innerText = `${issueCards.length}`
      
     issueCards.forEach(card=>{
         
              const displayCard = document.createElement("div")
-        displayCard.innerHTML = `<div class="bg-white p-4 h-full rounded-xl border-t-2 ${card.status === "open" 
+        displayCard.innerHTML = `<div onclick="onclick="showModal('myModal')")"  class="bg-white p-4 h-full rounded-xl border-t-2 ${card.status === "open" 
             ? "border-t-green-500" : "border-t-yellow-600"} space-y-3">
             <div class="flex justify-between">
                ${card.status === "open" 
@@ -62,7 +71,23 @@ const displayIssue = (issueCards)=>{
                 <p>#1 ${card.assignee}</p>
                 <p>${card.createdAt}</p>
             </div>
-        </div>`
+            
+        </div>
+        <!-- Open the modal using ID.showModal() method -->
+<dialog id="myModal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>`
+
+        
 
         issueCard.appendChild(displayCard)
         })       
@@ -74,6 +99,20 @@ document.getElementById("button").addEventListener("click", (e)=>{
     allIssue(selectedValue)
 })
 
+
+const searchIssue = (searchText)=>{
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`
+
+    fetch(url)
+    .then(res=> res.json())
+    .then(data => displayIssue(data.data))
+}
+
+
+document.getElementById("searchBtn").addEventListener("click",()=>{
+    const inputValue = document.getElementById("searchInput").value
+   searchIssue(inputValue)
+})
 
 
 allIssue()
